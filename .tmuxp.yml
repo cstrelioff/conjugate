@@ -1,0 +1,24 @@
+session_name: conjugate
+windows:
+  - window_name: vim
+    focus: true
+    window_index: 1
+    layout: main-vertical
+    panes:
+      - shell_command:
+        - vim
+        - :! pwd
+        focus: true
+      - shell_command:
+        - pwd
+      - shell_command:
+        - cd ../sndbox
+        - pwd
+  - window_name: jupyter
+    window_index: 2
+    panes:
+      - shell_command:
+        - cd ../sndbox
+        - echo "workon conjugate_27 or workon conjugate_34"
+        - echo "jupyter notebook"
+
