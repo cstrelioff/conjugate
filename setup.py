@@ -37,7 +37,20 @@ setup(
     ],
     keywords='statistics inference Bayesian',
     packages=['conjugate'],
-    install_requires=['future']
+    install_requires=[
+        'future>=0.15.2',
+        'numpy>=1.9.3',
+        'scipy>=0.16.0',
+        'matplotlib>=1.4.3'
+    ],
+    # install using
+    # $ pip install -e .[doc,test]
+    # -- or --
+    # $ pip install -e .[doc]
+    # $ pip install -e .[test]
+    extras_require={
+        'doc': ['sphinx', 'sphinx-bootstrap-theme'],
+        'test': ['nose', 'coverage', 'flake8']
+    }
 )
-
 
