@@ -8,12 +8,12 @@ install
 
 Coming.
 
-Usage
------
+docs
+----
 
 Coming.
 
-License
+license
 -------
 
-MIT -- see above.
+MIT -- see LICENSE above.
