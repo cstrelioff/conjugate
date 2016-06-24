@@ -50,7 +50,7 @@ setup(
     # $ pip install -e .[test]
     extras_require={
         'doc': ['sphinx', 'sphinx-bootstrap-theme'],
-        'test': ['nose', 'coverage', 'flake8']
+        'test': ['pytest', 'pytest-cov', 'coverage', 'flake8']
     }
 )
 
