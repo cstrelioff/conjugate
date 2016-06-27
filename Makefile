@@ -9,3 +9,9 @@ install-test:
 
 test:
 	python setup.py nosetests
+
+test-binomial:
+	py.test --cov-report term-missing --cov=conjugate tests/test_binomial.py
+
+test-multinomial:
+	py.test --cov-report term-missing --cov=conjugate tests/test_multinomial.py
