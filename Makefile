@@ -8,10 +8,13 @@ install-test:
 	pip install -e .[test]
 
 test:
-	python setup.py nosetests
+	py.test --cov-report term-missing --cov=conjugate tests/
 
 test-binomial:
 	py.test --cov-report term-missing --cov=conjugate tests/test_binomial.py
 
 test-multinomial:
 	py.test --cov-report term-missing --cov=conjugate tests/test_multinomial.py
+
+test-utilities:
+	py.test --cov-report term-missing --cov=conjugate tests/test_utilities.py
