@@ -11,10 +11,10 @@ test:
 	py.test --cov-report term-missing --cov=conjugate tests/
 
 test-binomial:
-	py.test --cov-report term-missing --cov=conjugate tests/test_binomial.py
+	py.test -v tests/test_binomial.py
 
 test-multinomial:
-	py.test --cov-report term-missing --cov=conjugate tests/test_multinomial.py
+	py.test -v tests/test_multinomial.py
 
 test-utilities:
-	py.test --cov-report term-missing --cov=conjugate tests/test_utilities.py
+	py.test -v tests/test_utilities.py
