@@ -62,7 +62,7 @@ class BinomialBeta(PosteriorBase):
 
         return tmp
 
-    def _posterior_scipy(self, parameter):
+    def _posterior_marginal_scipy(self, parameter):
         """Return the scipy posterior for passed parameter."""
         a = self._prior_hyperparameters['alpha']
         b = self._prior_hyperparameters['beta']
@@ -71,7 +71,7 @@ class BinomialBeta(PosteriorBase):
 
         return beta(a+k, b+n-k)
 
-    def _prior_scipy(self, parameter):
+    def _prior_marginal_scipy(self, parameter):
         """Return the scipy prior for passed parameter."""
         a = self._prior_hyperparameters['alpha']
         b = self._prior_hyperparameters['beta']
@@ -88,7 +88,7 @@ class BinomialBeta(PosteriorBase):
         dx = (x_max - x_min)/100
         x_vals = np.arange(dx, x_max, dx)
 
-        prior = self._prior_scipy(parameter)
+        prior = self._prior_marginal_scipy(parameter)
         prior_mean = self.prior_mean(parameter)
         plot_parameter_pdf(ax, prior, prior_mean, x_vals, fill=None,
                            x_fill=None, confidence=0.95,
@@ -104,7 +104,7 @@ class BinomialBeta(PosteriorBase):
         dx = (x_max - x_min)/100
         x_vals = np.arange(dx, x_max, dx)
 
-        posterior = self._posterior_scipy(parameter)
+        posterior = self._posterior_marginal_scipy(parameter)
         posterior_mean = self.posterior_mean(parameter)
 
         n = self.data['n']
@@ -204,6 +204,14 @@ class BinomialBeta(PosteriorBase):
 
             return a/(a+b)
 
+    def prior_sample(self):
+        """Return a sample of all parameters from the Beta prior."""
+        pass
+
+    def prior_sample_parameter(self, parameter):
+        """Return a sample of the passed parameter from the Beta prior."""
+        pass
+
     def posterior_mean(self, parameter):
         """Return the posterior mean for the specified parameter."""
         if parameter not in self:
@@ -216,12 +224,20 @@ class BinomialBeta(PosteriorBase):
 
             return (a+k)/(a+b+n)
 
+    def posterior_sample(self):
+        """Return a sample of all parameters from the Beta posterior."""
+        pass
+
+    def posterior_sample_parameter(self, parameter):
+        """Return a sample of the passed parameter from the Beta posterior."""
+        pass
+
     def posterior_central_credible_region(self, parameter, confidence=0.95):
         """Return central credible region of posterior for passed parameter."""
         if parameter not in self:
             raise ConjugateParameterException('Parameter not recognized!')
         else:
-            ccr = central_credible_region(self._posterior_scipy(parameter),
+            ccr = central_credible_region(self._posterior_marginal_scipy(parameter),
                                           confidence=confidence)
 
             return list(ccr)
@@ -235,7 +251,7 @@ class BinomialBeta(PosteriorBase):
             raise ConjugateParameterException('Parameter not recognized!')
         else:
             p = parameter
-            hdcr = high_density_credible_region(self._posterior_scipy(p),
+            hdcr = high_density_credible_region(self._posterior_marginal_scipy(p),
                                                 confidence=confidence)
 
             return list(hdcr)
