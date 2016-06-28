@@ -97,8 +97,28 @@ class PosteriorBase(six.with_metaclass(abc.ABCMeta, object)):
         pass # pragma: no cover
 
     @abc.abstractmethod
+    def prior_sample(self):
+        """Return a sample of all parameters from the prior."""
+        pass # pragma: no cover
+
+    @abc.abstractmethod
+    def prior_sample_parameter(self, parameter):
+        """Return a sample of the passed parameter from the prior."""
+        pass # pragma: no cover
+
+    @abc.abstractmethod
     def posterior_mean(self, parameter):
         """Return posterior mean for passed parameter."""
+        pass # pragma: no cover
+
+    @abc.abstractmethod
+    def posterior_sample(self):
+        """Return a sample of all parameters from the posterior."""
+        pass # pragma: no cover
+
+    @abc.abstractmethod
+    def posterior_sample_parameter(self, parameter):
+        """Return a sample of the passed parameter from the posterior."""
         pass # pragma: no cover
 
     @abc.abstractmethod
