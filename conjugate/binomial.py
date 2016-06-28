@@ -62,8 +62,10 @@ class BinomialBeta(PosteriorBase):
 
         return tmp
 
-    def _posterior_marginal_scipy(self, parameter):
-        """Return the scipy posterior for passed parameter."""
+    def _posterior_scipy(self):
+        """Return the scipy posterior. For Binomial inference this is the same
+        as the marginal because there is a single model parameter.
+        """
         a = self._prior_hyperparameters['alpha']
         b = self._prior_hyperparameters['beta']
         k = self._data['k']
@@ -71,12 +73,21 @@ class BinomialBeta(PosteriorBase):
 
         return beta(a+k, b+n-k)
 
-    def _prior_marginal_scipy(self, parameter):
-        """Return the scipy prior for passed parameter."""
+    def _posterior_marginal_scipy(self, parameter):
+        """Return the scipy (marginal) posterior for passed parameter."""
+        return self._posterior_scipy()
+
+    def _prior_scipy(self):
+        """Return the scipy prior. For Binomial inference this the same as the
+        marginal because there is a single model parameter."""
         a = self._prior_hyperparameters['alpha']
         b = self._prior_hyperparameters['beta']
 
         return beta(a, b)
+
+    def _prior_marginal_scipy(self, parameter):
+        """Return the scipy (marginal) prior for passed parameter."""
+        return self._prior_scipy()
 
     def _plot_prior_pdf(self, parameter, ax, **kwargs):
         """Plot parameter prior pdf using passed matplotlib ax."""
