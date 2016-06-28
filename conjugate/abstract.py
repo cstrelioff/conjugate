@@ -26,11 +26,11 @@ class PosteriorBase(six.with_metaclass(abc.ABCMeta, object)):
 
     @abc.abstractmethod
     def __contains__(self, parameter):
-        pass
+        pass # pragma: no cover
 
     @abc.abstractmethod
     def __iter__(self):
-        pass
+        pass # pragma: no cover
 
     @property
     @abc.abstractmethod
@@ -72,7 +72,7 @@ class PosteriorBase(six.with_metaclass(abc.ABCMeta, object)):
     @abc.abstractmethod
     def prior_hyperparameters(self, new_setting):
         """Set the values of the prior hyperparameters."""
-        pass
+        pass # pragma: no cover
 
     @property
     @abc.abstractmethod
@@ -84,55 +84,55 @@ class PosteriorBase(six.with_metaclass(abc.ABCMeta, object)):
     @abc.abstractmethod
     def data(self, new_data):
         """Set new data, over-writing old data."""
-        pass
+        pass # pragma: no cover
 
     @abc.abstractmethod
     def add_data(self, data):
         """Add data, keeping old data, with validation and processing."""
-        pass
+        pass # pragma: no cover
 
     @abc.abstractmethod
     def prior_mean(self, parameter):
         """Return prior mean for passed parameter."""
-        pass
+        pass # pragma: no cover
 
     @abc.abstractmethod
     def posterior_mean(self, parameter):
         """Return posterior mean for passed parameter."""
-        pass
+        pass # pragma: no cover
 
     @abc.abstractmethod
     def posterior_central_credible_region(self, parameter, confidence):
         """Return central credible region of posterior for passed parameter."""
-        pass
+        pass # pragma: no cover
 
     @abc.abstractmethod
     def posterior_high_density_credible_region(self, parameter, confidence):
         """Return high-density credible region of posterior for passed
         parameter.
         """
-        pass
+        pass # pragma: no cover
 
     @abc.abstractmethod
     def plot_parameter_prior(self, parameter, **kwargs):
         """Plot the prior pdf for the passed parameter.
         """
-        pass
+        pass # pragma: no cover
 
     @abc.abstractmethod
     def plot_parameter_posterior(self, parameter, **kwargs):
         """Plot the posterior pdf for the passed parameter.
         """
-        pass
+        pass # pragma: no cover
 
     @abc.abstractmethod
     def plot_parameter_summary(self, parameter, **kwargs):
         """Plot the prior and posterior pdfs for the passed parameter.
         """
-        pass
+        pass # pragma: no cover
 
     @abc.abstractmethod
     def plot_summary(self, parameters, **kwargs):
         """Plot the posterior pdfs for all parameters in the passed list.
         """
-        pass
+        pass # pragma: no cover
