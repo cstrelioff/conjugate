@@ -22,8 +22,8 @@ from future.builtins import (ascii, bytes, chr, dict, filter, hex,  # noqa
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
-from scipy.stats import beta
-from numpy.random import multinomial
+from scipy.stats import beta as _scipy_beta
+from numpy.random import multinomial as _np_multinomial
 
 from .abstract import PosteriorBase
 
@@ -88,7 +88,7 @@ class MultinomialDirichlet(PosteriorBase):
         N = sum(self._data.values())
         ni = self._data[letter]
 
-        return beta(ai+ni, A-ai+N-ni)
+        return _scipy_beta(ai+ni, A-ai+N-ni)
 
     def _prior_marginal_scipy(self, parameter):
         """Return the scipy (marginal) prior for passed parameter."""
@@ -96,7 +96,7 @@ class MultinomialDirichlet(PosteriorBase):
         A = sum(self._prior_hyperparameters.values())
         ai = self.prior_hyperparameters['a_{}'.format(letter)]
 
-        return beta(ai, A-ai)
+        return _scipy_beta(ai, A-ai)
 
     def _plot_prior_pdf(self, parameter, ax, **kwargs):
         """Plot parameter prior pdf using passed matplotlib ax."""
