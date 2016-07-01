@@ -3,14 +3,14 @@ conjugate
 
 A Python package for Bayesian inference using conjugate priors.
 
-Usage
+usage
 -----
 .. toctree::
    :maxdepth: 2
 
    binomial_beta
 
-Code Reference
+code reference
 --------------
 .. toctree::
    :maxdepth: 2

@@ -1,38 +1,47 @@
-conjugate package
-=================
+I've divided the API documentation into *api for users* and *api for devs*
+sections. For most readers, the *api for users* section documents the code that
+you'll be using. If you want to dive into the guts of the project, checkout the
+*api for devs* section for information about the abstract base class and
+related infrastructure.
 
-Submodules
-----------
 
-conjugate.abstract module
--------------------------
+api for users
+=============
 
-.. automodule:: conjugate.abstract
-    :members:
-    :undoc-members:
-    :show-inheritance:
+These modules are designed for typical user tasks.
 
-conjugate.binomial module
--------------------------
+binomial
+--------
 
 .. automodule:: conjugate.binomial
     :members:
     :undoc-members:
     :show-inheritance:
 
-conjugate.exceptions module
----------------------------
+multinomial
+-----------
 
-.. automodule:: conjugate.exceptions
+.. automodule:: conjugate.multinomial
     :members:
     :undoc-members:
     :show-inheritance:
 
 
-Module contents
----------------
+api for devs
+============
 
-.. automodule:: conjugate
+abstract
+--------
+
+.. automodule:: conjugate.abstract
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+exceptions
+----------
+
+.. automodule:: conjugate.exceptions
     :members:
     :undoc-members:
     :show-inheritance:
