@@ -6,14 +6,14 @@ A Python package for Bayesian inference using conjugate priors.
 usage
 -----
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    binomial_beta
 
 code reference
 --------------
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    conjugate
 
