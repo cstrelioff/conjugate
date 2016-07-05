@@ -311,4 +311,4 @@ class BinomialBeta(PosteriorBase):
 
     def plot_summary(self, **kwargs):
         """Plot posterior pdfs for all parameters."""
-        self.plot_parameter_posterior('p', **kwargs)
+        return self.plot_parameter_posterior('p', **kwargs)
